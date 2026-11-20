@@ -1,0 +1,973 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NASAA Professional Services | Recovery, Facilities & Data Services in Srinagar</title>
+  <meta name="description" content="NASAA Professional Services Pvt. Ltd. — debt recovery, housekeeping, data entry, digitisation, general order supplies and scrap services for institutions across Jammu & Kashmir." />
+
+  <!-- Fonts: Inter Tight (headings) + Inter (body) — neo-grotesk, matching the brand boards -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- =========================================================
+       DESIGN TOKENS — brand palette. Change here, everything follows.
+       ========================================================= -->
+  <style>
+    :root {
+      --c-ink:      #121214; /* headlines, nav, dark sections */
+      --c-ink-2:    #1C1C21; /* raised surface on dark */
+      --c-paper:    #F3F2F2; /* card header strips, soft panels */
+      --c-bg:       #FAFAFA; /* page background */
+      --c-surface:  #FFFFFF; /* cards */
+      --c-lavender: #EEEAF7; /* image tint / soft accent panel */
+      --c-indigo:   #3B2EF0; /* primary accent — links, CTAs (AA on white) */
+      --c-violet:   #A24BFF; /* gradient mid */
+      --c-coral:    #FF6A4D; /* gradient warm */
+      --c-orange:   #FF9447; /* gradient end */
+      --c-text:     #26262B; /* body text */
+      --c-muted:    #5E5E68; /* secondary text (AA on white) */
+      --c-line:     #E6E4E4; /* borders */
+      --c-on-dark-muted: #B4B2BE;
+
+      /* Signature brand gradient (indigo → violet → coral → orange) */
+      --g-brand: linear-gradient(120deg, #3B2EF0 0%, #7A3CFF 32%, #C24FE0 52%, #FF6A4D 78%, #FF9447 100%);
+      /* "Old road recursion" striped variant */
+      --g-stripes: repeating-linear-gradient(90deg, rgba(255,255,255,.07) 0 1px, transparent 1px 64px);
+    }
+  </style>
+
+  <!-- Tailwind (CDN) mapped to the tokens -->
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: 'var(--c-ink)', ink2: 'var(--c-ink-2)', paper: 'var(--c-paper)', bg: 'var(--c-bg)',
+            surface: 'var(--c-surface)', lavender: 'var(--c-lavender)', indigo: 'var(--c-indigo)',
+            violet: 'var(--c-violet)', coral: 'var(--c-coral)', orange: 'var(--c-orange)',
+            body: 'var(--c-text)', muted: 'var(--c-muted)', line: 'var(--c-line)', ondarkmuted: 'var(--c-on-dark-muted)',
+          },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['"Inter Tight"', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+          maxWidth: { container: '1280px' },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    body { background: var(--c-bg); color: var(--c-text); font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+
+    /* ---------- Type scale ---------- */
+    .t-display { font-family: "Inter Tight", Inter, sans-serif; font-size: clamp(2.5rem, 1.4rem + 4.6vw, 5.4rem); line-height: 1.02; letter-spacing: -0.038em; font-weight: 500; }
+    .t-h2      { font-family: "Inter Tight", Inter, sans-serif; font-size: clamp(2rem, 1.3rem + 2.8vw, 3.6rem); line-height: 1.05; letter-spacing: -0.04em; font-weight: 500; }
+    .t-h3      { font-family: "Inter Tight", Inter, sans-serif; font-size: clamp(1.25rem, 1.1rem + .5vw, 1.5rem); line-height: 1.2; letter-spacing: -0.025em; font-weight: 500; }
+    .t-num     { font-family: "Inter Tight", Inter, sans-serif; font-variant-numeric: tabular-nums; letter-spacing: -0.05em; font-weight: 500; line-height: .9; }
+    .eyebrow   { display: inline-flex; align-items: center; gap: .55rem; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--c-muted); }
+    .eyebrow::before { content: ""; width: 22px; height: 6px; border-radius: 99px; background: var(--g-brand); }
+    .on-dark .eyebrow { color: var(--c-on-dark-muted); }
+
+    /* Gradient text for numerals & highlights */
+    .g-text { background: var(--g-brand); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .g-bg   { background: var(--g-brand); }
+
+    /* ---------- Buttons (pill + round arrow, HireHive-style pairing) ---------- */
+    .btn { display: inline-flex; align-items: center; gap: .75rem; min-height: 54px; padding: 0 .4rem 0 1.5rem; border-radius: 999px; font-weight: 600; font-size: 1rem; transition: background-color .25s, color .25s, transform .25s, box-shadow .25s; }
+    .btn .arrow { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 999px; transition: transform .3s; }
+    .btn:hover .arrow { transform: rotate(-45deg); }
+    .btn-dark  { background: var(--c-ink); color: #fff; }
+    .btn-dark .arrow { background: var(--g-brand); }
+    .btn-dark:hover { box-shadow: 0 12px 30px -12px rgba(59,46,240,.55); }
+    .btn-white { background: #fff; color: var(--c-ink); }
+    .btn-white .arrow { background: var(--c-ink); color: #fff; }
+    .btn-line  { padding: 0 1.5rem; border: 1.5px solid currentColor; }
+    .btn-line:hover { background: var(--c-ink); color: #fff; border-color: var(--c-ink); }
+    .on-dark .btn-line:hover, .on-photo .btn-line:hover { background: #fff; color: var(--c-ink); border-color: #fff; }
+
+    /* ---------- Cards ---------- */
+    .card { background: var(--c-surface); border: 1px solid var(--c-line); border-radius: 22px; overflow: hidden; transition: transform .35s ease, box-shadow .35s ease; }
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -32px rgba(18,18,20,.35); }
+    .card-strip { background: var(--c-paper); padding: .9rem 1.25rem; display: flex; align-items: center; justify-content: space-between; font-size: .875rem; font-weight: 600; color: var(--c-ink); }
+
+    /* Image frame: soft lavender fallback if an image fails */
+    .img-frame { position: relative; overflow: hidden; background: var(--c-lavender); }
+    .img-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+    .card-hover:hover .img-frame img, .zoom:hover img { transform: scale(1.06); }
+
+    /* Glass chip floating on images */
+    .chip { background: rgba(255,255,255,.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 18px; box-shadow: 0 20px 40px -24px rgba(18,18,20,.4); }
+
+    /* ---------- Focus ---------- */
+    :focus-visible { outline: 3px solid var(--c-indigo); outline-offset: 3px; border-radius: 10px; }
+    .on-dark :focus-visible, .on-photo :focus-visible { outline-color: #fff; }
+
+    /* ---------- Form ---------- */
+    .field { width: 100%; min-height: 54px; padding: .8rem 1.1rem; border: 1px solid var(--c-line); border-radius: 14px; background: #fff; color: var(--c-text); font-size: 1rem; transition: border-color .2s, box-shadow .2s; }
+    .field:focus { outline: none; border-color: var(--c-indigo); box-shadow: 0 0 0 4px rgba(59,46,240,.12); }
+    .field[aria-invalid="true"] { border-color: #C2410C; }
+    .field-label { display: block; font-size: .9rem; font-weight: 600; color: var(--c-ink); margin-bottom: .4rem; }
+
+    /* ---------- Marquee ---------- */
+    .marquee { display: flex; width: max-content; animation: marquee 38s linear infinite; }
+    .marquee-wrap:hover .marquee { animation-play-state: paused; }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+
+    /* ---------- FAQ ---------- */
+    details summary { list-style: none; cursor: pointer; }
+    details summary::-webkit-details-marker { display: none; }
+    details .plus { transition: transform .3s; }
+    details[open] .plus { transform: rotate(45deg); }
+
+    /* ---------- Reveal ---------- */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: .08s; } .reveal-d2 { transition-delay: .16s; } .reveal-d3 { transition-delay: .24s; }
+
+    /* ---------- Hero slideshow ---------- */
+    .hero-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.08); transition: opacity 1.4s ease, transform 7s ease-out; }
+    .hero-slide.is-active { opacity: 1; transform: scale(1); }
+    .hero-progress { width: 0; background: #fff; transition: width .1s linear; }
+    .hero-tab.is-done .hero-progress { width: 100%; }
+    .hero-tab { padding: .5rem 0; cursor: pointer; opacity: .75; transition: opacity .2s; }
+    .hero-tab.is-active, .hero-tab:hover { opacity: 1; }
+    .hero-card-body { transition: opacity .35s ease, transform .35s ease; }
+    .hero-card-body.swap { opacity: 0; transform: translateY(6px); }
+    /* Reduced motion: no auto-advance, active bar shown full */
+    .no-autoplay .hero-tab.is-active .hero-progress { width: 100% !important; }
+
+    #site-header.scrolled { box-shadow: 0 1px 0 var(--c-line); background: rgba(250,250,250,.94); }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-ink focus:text-white focus:px-4 focus:py-2 focus:rounded-full">Skip to content</a>
+
+  <!-- =========================================================
+       00. UTILITY BAR
+       ========================================================= -->
+  <div class="hidden md:block bg-ink text-ondarkmuted text-[13px]">
+    <div class="mx-auto max-w-container px-6 lg:px-8 h-10 flex items-center justify-between">
+      <p>Reshi Mohalla, Habba Kadal, Srinagar, J&amp;K</p>
+      <div class="flex items-center gap-6">
+        <a href="mailto:nasaaprofessionalservicespvtltd@gmail.com" class="hover:text-white">nasaaprofessionalservicespvtltd@gmail.com</a>
+        <a href="tel:+919596313927" class="hover:text-white">+91 95963 13927</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       01. HEADER
+       ========================================================= -->
+  <header id="site-header" class="sticky top-0 z-50 backdrop-blur bg-bg/85 transition-shadow">
+    <div class="mx-auto max-w-container px-4 sm:px-6 lg:px-8 h-[76px] flex items-center justify-between gap-6">
+      <a href="#top" class="flex items-center gap-2.5" aria-label="NASAA Professional Services, home">
+        <!-- Brand mark (placeholder glyph — replace with final logo SVG) -->
+        <svg width="30" height="26" viewBox="0 0 30 26" aria-hidden="true"><path d="M0 26 9 0h7L7 26z" fill="#121214"/><path d="M11 26 20 0h4l-9 26z" fill="#121214"/><path d="M19 26l5.5-15L30 26z" fill="url(#gm)"/><defs><linearGradient id="gm" x1="0" x2="1"><stop stop-color="#3B2EF0"/><stop offset=".55" stop-color="#C24FE0"/><stop offset="1" stop-color="#FF9447"/></linearGradient></defs></svg>
+        <span class="font-display text-[22px] font-medium tracking-[-0.04em] text-ink">nasaa</span>
+        <span class="hidden sm:inline text-[12px] font-medium text-muted leading-tight border-l border-line pl-2.5">Professional<br />Services</span>
+      </a>
+
+      <nav aria-label="Primary" class="hidden lg:block">
+        <ul class="flex items-center gap-1 text-[15px] font-medium text-ink">
+          <li><a class="px-4 py-2 rounded-full hover:bg-paper transition-colors" href="#services">Services</a></li>
+          <li><a class="px-4 py-2 rounded-full hover:bg-paper transition-colors" href="#why">Why Us</a></li>
+          <li><a class="px-4 py-2 rounded-full hover:bg-paper transition-colors" href="#process">Process</a></li>
+          <li><a class="px-4 py-2 rounded-full hover:bg-paper transition-colors" href="#about">About</a></li>
+          <li><a class="px-4 py-2 rounded-full hover:bg-paper transition-colors" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="btn btn-dark hidden sm:inline-flex !min-h-[48px] text-[15px]">Get a Quote
+          <span class="arrow !w-9 !h-9" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <button id="menu-btn" class="lg:hidden inline-flex items-center justify-center w-12 h-12 rounded-full bg-paper text-ink" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+          <svg id="icon-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+          <svg id="icon-close" class="hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="lg:hidden hidden border-t border-line bg-bg">
+      <nav aria-label="Mobile" class="mx-auto max-w-container px-4 sm:px-6 py-6">
+        <ul class="flex flex-col font-display text-2xl font-medium tracking-tight text-ink">
+          <li><a class="block py-3 border-b border-line" href="#services">Services</a></li>
+          <li><a class="block py-3 border-b border-line" href="#why">Why Us</a></li>
+          <li><a class="block py-3 border-b border-line" href="#process">Process</a></li>
+          <li><a class="block py-3 border-b border-line" href="#about">About</a></li>
+          <li><a class="block py-3" href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-dark w-full justify-between mt-6">Get a Quote
+          <span class="arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- =========================================================
+         02. HERO — auto-rotating service photos (crossfade every 6s)
+         ========================================================= -->
+    <section id="top" class="px-2 sm:px-3 pt-1" aria-roledescription="carousel" aria-label="Our services">
+      <div id="hero" class="relative rounded-[28px] overflow-hidden min-h-[640px] lg:min-h-[min(780px,calc(100svh-130px))] flex items-end on-photo bg-ink">
+        <!-- Slides: replace these with your own photos of NASAA teams at work -->
+        <div id="hero-slides" class="absolute inset-0">
+          <img data-slide src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=2000&q=72" alt="A recovery officer reviewing and signing loan documents" class="hero-slide is-active" style="object-position:center" fetchpriority="high" />
+          <img data-slide src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=2000&q=72" alt="A housekeeping staff member cleaning a window" class="hero-slide" style="object-position:center 30%" loading="eager" />
+          <img data-slide src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=2000&q=72" alt="Data entry operators working at computers" class="hero-slide" style="object-position:center" loading="eager" />
+          <img data-slide src="https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&fit=crop&w=2000&q=72" alt="Archived records and registers ready for digitisation" class="hero-slide" style="object-position:center" loading="eager" />
+          <img data-slide src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=2000&q=72" alt="A stocked warehouse of office and general supplies" class="hero-slide" style="object-position:center" loading="eager" />
+          <img data-slide src="https://images.unsplash.com/photo-1528323273322-d81458248d40?auto=format&fit=crop&w=2000&q=72" alt="Bales of paper and cardboard scrap sorted for recycling" class="hero-slide" style="object-position:center" loading="eager" />
+        </div>
+        <!-- Brand overlays -->
+        <div class="absolute inset-0" style="background: linear-gradient(100deg, rgba(18,18,20,.9) 0%, rgba(30,22,90,.66) 45%, rgba(59,46,240,.22) 75%, rgba(255,106,77,.2) 100%);" aria-hidden="true"></div>
+        <div class="absolute inset-0 lg:hidden bg-gradient-to-b from-ink/50 via-ink/40 to-ink/75" aria-hidden="true"></div>
+        <div class="absolute inset-0" style="background: var(--g-stripes);" aria-hidden="true"></div>
+
+        <div class="relative w-full mx-auto max-w-container px-4 sm:px-6 lg:px-8 pb-6 lg:pb-8 pt-20 lg:pt-16">
+          <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-end">
+            <div class="lg:col-span-8 text-white">
+              <p class="reveal inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 backdrop-blur px-4 py-2 text-[13px] font-medium">
+                <span class="w-2 h-2 rounded-full g-bg" aria-hidden="true"></span> Srinagar · Serving institutions across Jammu &amp; Kashmir
+              </p>
+              <h1 class="t-display mt-6 reveal reveal-d1">One partner for recovery, facilities and data.</h1>
+              <p class="mt-5 text-lg sm:text-xl text-white/80 max-w-2xl reveal reveal-d2">Banks, government offices, hospitals, schools and businesses outsource their essential work to us. One contract, one point of contact, and trained people on the ground.</p>
+              <div class="mt-8 flex flex-col sm:flex-row gap-3 reveal reveal-d3">
+                <a href="#contact" class="btn btn-white justify-between sm:justify-start">Request a Service
+                  <span class="arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                </a>
+                <a href="tel:+919596313927" class="btn btn-line text-white justify-center">Call Us · 95963 13927</a>
+              </div>
+            </div>
+
+            <!-- Live service card: updates with the current slide -->
+            <div class="lg:col-span-4 reveal reveal-d3">
+              <div class="chip p-6 text-ink max-w-sm lg:ml-auto">
+                <div class="flex items-center justify-between">
+                  <span class="text-[13px] font-semibold text-muted">Service <span id="hero-count">01</span> of 06</span>
+                  <button id="hero-pause" type="button" class="w-9 h-9 rounded-full bg-paper grid place-items-center hover:bg-lavender transition-colors" aria-label="Pause slideshow">
+                    <svg id="ico-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+                    <svg id="ico-play" class="hidden" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5v14l12-7z"/></svg>
+                  </button>
+                </div>
+                <div id="hero-card-body" class="hero-card-body mt-4" aria-live="polite">
+                  <p class="t-num text-5xl g-text" id="hero-num">01</p>
+                  <p class="font-display text-xl font-medium tracking-tight mt-3 leading-snug" id="hero-title">Debt Recovery for Financial Institutions</p>
+                  <p class="text-[15px] text-muted mt-1.5" id="hero-line">Firm, polite field recovery within RBI guidelines.</p>
+                </div>
+                <a href="#contact" id="hero-link" data-service="Debt Recovery Services" class="enquire mt-4 pt-4 border-t border-line flex items-center justify-between text-[14px] font-semibold text-indigo">Enquire about this service <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide tabs with progress bars -->
+          <div role="tablist" aria-label="Choose a service" class="mt-8 lg:mt-10 grid grid-cols-6 gap-2 md:gap-4 text-white">
+              <button type="button" role="tab" data-tab="0" aria-selected="true" aria-controls="hero-slides" class="hero-tab is-active text-left">
+                <span class="block h-[3px] rounded-full bg-white/25 overflow-hidden"><span class="hero-progress block h-full"></span></span>
+                <span class="hidden md:block mt-3 text-[13px] font-medium"><span class="opacity-60 mr-1.5">01</span>Debt Recovery</span>
+                <span class="sr-only md:hidden">01 Debt Recovery</span>
+              </button>
+              <button type="button" role="tab" data-tab="1" aria-selected="false" aria-controls="hero-slides" class="hero-tab text-left">
+                <span class="block h-[3px] rounded-full bg-white/25 overflow-hidden"><span class="hero-progress block h-full"></span></span>
+                <span class="hidden md:block mt-3 text-[13px] font-medium"><span class="opacity-60 mr-1.5">02</span>Housekeeping</span>
+                <span class="sr-only md:hidden">02 Housekeeping</span>
+              </button>
+              <button type="button" role="tab" data-tab="2" aria-selected="false" aria-controls="hero-slides" class="hero-tab text-left">
+                <span class="block h-[3px] rounded-full bg-white/25 overflow-hidden"><span class="hero-progress block h-full"></span></span>
+                <span class="hidden md:block mt-3 text-[13px] font-medium"><span class="opacity-60 mr-1.5">03</span>Data Entry</span>
+                <span class="sr-only md:hidden">03 Data Entry</span>
+              </button>
+              <button type="button" role="tab" data-tab="3" aria-selected="false" aria-controls="hero-slides" class="hero-tab text-left">
+                <span class="block h-[3px] rounded-full bg-white/25 overflow-hidden"><span class="hero-progress block h-full"></span></span>
+                <span class="hidden md:block mt-3 text-[13px] font-medium"><span class="opacity-60 mr-1.5">04</span>Digitisation</span>
+                <span class="sr-only md:hidden">04 Digitisation</span>
+              </button>
+              <button type="button" role="tab" data-tab="4" aria-selected="false" aria-controls="hero-slides" class="hero-tab text-left">
+                <span class="block h-[3px] rounded-full bg-white/25 overflow-hidden"><span class="hero-progress block h-full"></span></span>
+                <span class="hidden md:block mt-3 text-[13px] font-medium"><span class="opacity-60 mr-1.5">05</span>Supplies</span>
+                <span class="sr-only md:hidden">05 Supplies</span>
+              </button>
+              <button type="button" role="tab" data-tab="5" aria-selected="false" aria-controls="hero-slides" class="hero-tab text-left">
+                <span class="block h-[3px] rounded-full bg-white/25 overflow-hidden"><span class="hero-progress block h-full"></span></span>
+                <span class="hidden md:block mt-3 text-[13px] font-medium"><span class="opacity-60 mr-1.5">06</span>Scrap</span>
+                <span class="sr-only md:hidden">06 Scrap</span>
+              </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+<!-- =========================================================
+         03. TRUST STRIP — gradient marquee + pillars
+         ========================================================= -->
+    <div class="marquee-wrap overflow-hidden g-bg text-white mt-3 mx-2 sm:mx-3 rounded-[18px]" aria-hidden="true">
+      <div class="marquee py-4 font-display text-lg sm:text-xl font-medium tracking-tight whitespace-nowrap">
+        <span class="px-6">01 Debt Recovery</span><span>✳</span><span class="px-6">02 Housekeeping</span><span>✳</span><span class="px-6">03 Data Entry Operators</span><span>✳</span><span class="px-6">04 Data Digitisation</span><span>✳</span><span class="px-6">05 General Order Supplies</span><span>✳</span><span class="px-6">06 Scrap Purchase &amp; Disposal</span><span>✳</span>
+        <span class="px-6">01 Debt Recovery</span><span>✳</span><span class="px-6">02 Housekeeping</span><span>✳</span><span class="px-6">03 Data Entry Operators</span><span>✳</span><span class="px-6">04 Data Digitisation</span><span>✳</span><span class="px-6">05 General Order Supplies</span><span>✳</span><span class="px-6">06 Scrap Purchase &amp; Disposal</span><span>✳</span>
+      </div>
+    </div>
+
+    <section aria-label="Our commitments" class="py-16 lg:py-20">
+      <div class="mx-auto max-w-container px-4 sm:px-6 lg:px-8 grid gap-4 md:grid-cols-3">
+        <div class="card p-7 reveal flex gap-5">
+          <span class="shrink-0 w-12 h-12 rounded-2xl bg-lavender grid place-items-center" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B2EF0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9z"/></svg></span>
+          <div><h2 class="t-h3 text-ink">Quality</h2><p class="text-muted text-[15px] mt-1">Service standards agreed in writing before work starts.</p></div>
+        </div>
+        <div class="card p-7 reveal reveal-d1 flex gap-5">
+          <span class="shrink-0 w-12 h-12 rounded-2xl bg-lavender grid place-items-center" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B2EF0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <div><h2 class="t-h3 text-ink">Trust</h2><p class="text-muted text-[15px] mt-1">Background-verified staff and confidential handling of your data.</p></div>
+        </div>
+        <div class="card p-7 reveal reveal-d2 flex gap-5">
+          <span class="shrink-0 w-12 h-12 rounded-2xl bg-lavender grid place-items-center" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B2EF0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/></svg></span>
+          <div><h2 class="t-h3 text-ink">Excellence</h2><p class="text-muted text-[15px] mt-1">Regular reports and reviews, so you always know where things stand.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         04. SERVICES — photo cards, flagship larger
+         ========================================================= -->
+    <section id="services" class="pb-24 lg:pb-32">
+      <div class="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-6 items-end mb-12 reveal">
+          <div class="lg:col-span-7">
+            <p class="eyebrow">Our services</p>
+            <h2 class="t-h2 text-ink mt-4">Six services.<br />One accountable team.</h2>
+          </div>
+          <p class="lg:col-span-5 text-lg text-muted">Take one service or combine several under a single contract. Either way, you deal with one team that answers for the result.</p>
+        </div>
+
+        <!-- 01 Flagship -->
+        <article class="card card-hover reveal grid lg:grid-cols-2 !bg-ink !border-ink text-white on-dark">
+          <div class="img-frame min-h-[280px] lg:min-h-[520px]">
+            <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=1400&q=75" alt="Loan statements and a calculator on a desk" loading="lazy" class="absolute inset-0" />
+            <div class="absolute top-5 left-5 chip px-4 py-2 text-[13px] font-semibold text-ink">Flagship service</div>
+          </div>
+          <div class="p-7 sm:p-10 lg:p-12 flex flex-col">
+            <span class="t-num g-text text-[clamp(4.5rem,9vw,7.5rem)]">01</span>
+            <h3 class="mt-6 font-display text-[clamp(1.75rem,1.2rem+1.8vw,2.6rem)] font-medium tracking-[-0.035em] leading-[1.08]">Debt Recovery for Financial Institutions</h3>
+            <p class="mt-4 text-ondarkmuted text-lg">We help banks, NBFCs and cooperative societies recover overdue loans. Our field teams are firm, polite and work within RBI guidelines.</p>
+            <ul class="mt-8 space-y-3 text-[15px]">
+              <li class="flex gap-3 items-start"><span class="mt-2 w-1.5 h-1.5 rounded-full g-bg shrink-0" aria-hidden="true"></span>Field visits and structured borrower follow-up</li>
+              <li class="flex gap-3 items-start"><span class="mt-2 w-1.5 h-1.5 rounded-full g-bg shrink-0" aria-hidden="true"></span>Documented, compliant collection process</li>
+              <li class="flex gap-3 items-start"><span class="mt-2 w-1.5 h-1.5 rounded-full g-bg shrink-0" aria-hidden="true"></span>Account-wise MIS and recovery reports</li>
+            </ul>
+            <div class="mt-auto pt-10">
+              <a href="#contact" data-service="Debt Recovery Services" class="enquire btn btn-white">Enquire about recovery
+                <span class="arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 02–06 -->
+        <div class="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <!-- Card template: strip (number + name) → image → copy → deliverables → enquire -->
+          <article class="card card-hover reveal flex flex-col">
+            <div class="card-strip"><span>Housekeeping</span><span class="g-text t-num text-lg">02</span></div>
+            <div class="img-frame aspect-[16/10]"><img src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&w=900&q=70" alt="A gloved hand cleaning a surface with a spray bottle" loading="lazy" /></div>
+            <div class="p-7 flex flex-col flex-1">
+              <h3 class="t-h3 text-ink">Housekeeping Services</h3>
+              <p class="text-muted mt-2 text-[15px]">Trained, uniformed staff keep your offices, hospitals and campuses clean every day, to a written checklist.</p>
+              <ul class="mt-5 space-y-2 text-[15px] text-body">
+                <li class="flex gap-3 items-center"><span class="w-1.5 h-1.5 rounded-full g-bg" aria-hidden="true"></span>Daily and deep cleaning</li>
+                <li class="flex gap-3 items-center"><span class="w-1.5 h-1.5 rounded-full g-bg" aria-hidden="true"></span>A supervisor on every site</li>
+                <li class="flex gap-3 items-center"><span class="w-1.5 h-1.5 rounded-full g-bg" aria-hidden="true"></span>Consumables managed for you</li>
+              </ul>
+              <a href="#contact" data-service="Housekeeping Services" class="enquire mt-auto pt-6 font-semibold text-indigo inline-flex items-center gap-2 group">Enquire <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span><span class="sr-only"> about housekeeping</span></a>
+            </div>
+          </article>
+
+          <article class="card card-hover reveal reveal-d1 flex flex-col">
+            <div class="card-strip"><span>Data Entry</span><span class="g-text t-num text-lg">03</span></div>
+            <div class="img-frame aspect-[16/10]"><img src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?auto=format&fit=crop&w=900&q=70" alt="Operators working at computer workstations in a bright office" loading="lazy" /></div>
+            <div class="p-7 flex flex-col flex-1">
+              <h3 class="t-h3 text-ink">Data Entry Operator Services</h3>
+              <p class="text-muted mt-2 text-[15px]">Skilled operators work at your office or from ours, entering data accurately into your systems.</p>
+              <ul class="mt-5 space-y-2 text-[15px] text-body">
+                <li class="flex gap-3 items-center"><span class="w-1.5 h-1.5 rounded-full g-bg" aria-hidden="true"></span>On-site or off-site operators</li>
+                <li class="flex gap-3 items-center"><span class="w-1.5 h-1.5 rounded-full g-bg" aria-hidden="true"></span>Accuracy checks on every batch</li>
+                <li class="flex gap-3 items-center"><span class="w-1.5 h-1.5 rounded-full g-bg" aria-hidden="true"></span>Confidentiality agreements signed</li>
+              </ul>
+              <a href="#contact" data-service="Data Entry Operator Services" class="enquire mt-auto pt-6 font-semibold text-indigo inline-flex items-center gap-2 group">Enquire <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span><span class="sr-only"> about data entry</span></a>
+            </div>
+          </article>
+
+          <article class="card card-hover reveal reveal-d2 flex flex-col">
+            <div class="card-strip"><span>Digitisation</span><span class="g-text t-num text-lg">04</span></div>
+            <div class="img-frame aspect-[16/10]"><img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=900&q=70" alt="A paper document on a clipboard beside a laptop" loading="lazy" /></div>
+            <div class="p-7 flex flex-col flex-1">
+              <h3 class="t-h3 text-ink">Data Digitisation Services</h3>
+              <p class="text-muted mt-2 text-[15px]">We turn paper files and registers into searchable digital records you can find in seconds.</p>
+              <ul class="mt-5 space-y-2 text-[15px] text-body">
+                <li class="flex gap-3 items-center"><span class="w-1.5 h-1.5 rounded-full g-bg" aria-hidden="true"></span>Scanning and indexing</li>
+                <li class="flex gap-3 items-center"><span class="w-1.5 h-1.5 rounded-full g-bg" aria-hidden="true"></span>Searchable PDFs and metadata</li>
+                <li class="flex gap-3 items-center"><span class="w-1.5 h-1.5 rounded-full g-bg" aria-hidden="true"></span>Secure return of originals</li>
+              </ul>
+              <a href="#contact" data-service="Data Digitisation Services" class="enquire mt-auto pt-6 font-semibold text-indigo inline-flex items-center gap-2 group">Enquire <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span><span class="sr-only"> about digitisation</span></a>
+            </div>
+          </article>
+
+          <article class="card card-hover reveal flex flex-col">
+            <div class="card-strip"><span>Supplies</span><span class="g-text t-num text-lg">05</span></div>
+            <div class="img-frame aspect-[16/10]"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=900&q=70" alt="Warehouse aisle stocked with boxed supplies" loading="lazy" /></div>
+            <div class="p-7 flex flex-col flex-1">
+              <h3 class="t-h3 text-ink">General Order Supplies</h3>
+              <p class="text-muted mt-2 text-[15px]">Stationery, cleaning material, furniture and office essentials, sourced and delivered on time.</p>
+              <ul class="mt-5 space-y-2 text-[15px] text-body">
+                <li class="flex gap-3 items-center"><span class="w-1.5 h-1.5 rounded-full g-bg" aria-hidden="true"></span>One vendor for routine purchases</li>
+                <li class="flex gap-3 items-center"><span class="w-1.5 h-1.5 rounded-full g-bg" aria-hidden="true"></span>GST invoices for every order</li>
+                <li class="flex gap-3 items-center"><span class="w-1.5 h-1.5 rounded-full g-bg" aria-hidden="true"></span>Scheduled or on-demand delivery</li>
+              </ul>
+              <a href="#contact" data-service="General Order Supplies" class="enquire mt-auto pt-6 font-semibold text-indigo inline-flex items-center gap-2 group">Enquire <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span><span class="sr-only"> about supplies</span></a>
+            </div>
+          </article>
+
+          <article class="card card-hover reveal reveal-d1 flex flex-col md:col-span-2 lg:col-span-1">
+            <div class="card-strip"><span>Scrap</span><span class="g-text t-num text-lg">06</span></div>
+            <div class="img-frame aspect-[16/10] md:aspect-[21/9] lg:aspect-[16/10]"><img src="https://images.unsplash.com/photo-1604187351574-c75ca79f5807?auto=format&fit=crop&w=1200&q=70" alt="A recycling bin marked with the recycling symbol" loading="lazy" /></div>
+            <div class="p-7 flex flex-col flex-1">
+              <h3 class="t-h3 text-ink">Scrap Purchase &amp; Disposal</h3>
+              <p class="text-muted mt-2 text-[15px]">We buy and clear old furniture, e-waste, metal and paper, and dispose of it responsibly.</p>
+              <ul class="mt-5 space-y-2 text-[15px] text-body">
+                <li class="flex gap-3 items-center"><span class="w-1.5 h-1.5 rounded-full g-bg" aria-hidden="true"></span>Fair, transparent valuation</li>
+                <li class="flex gap-3 items-center"><span class="w-1.5 h-1.5 rounded-full g-bg" aria-hidden="true"></span>Pickup and site clearance</li>
+                <li class="flex gap-3 items-center"><span class="w-1.5 h-1.5 rounded-full g-bg" aria-hidden="true"></span>Disposal paperwork provided</li>
+              </ul>
+              <a href="#contact" data-service="Scrap Purchase & Disposal" class="enquire mt-auto pt-6 font-semibold text-indigo inline-flex items-center gap-2 group">Enquire <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span><span class="sr-only"> about scrap</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         05. WHO WE SERVE — image tiles
+         ========================================================= -->
+    <section aria-labelledby="sectors-title" class="pb-24 lg:pb-32">
+      <div class="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto reveal">
+          <p class="eyebrow justify-center">Who we serve</p>
+          <h2 id="sectors-title" class="t-h2 text-ink mt-4">Built for institutions that can't afford gaps.</h2>
+        </div>
+
+        <ul class="mt-12 grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+          <li class="reveal zoom img-frame rounded-[22px] aspect-[4/5] sm:aspect-[4/3] on-photo">
+            <img src="https://images.unsplash.com/photo-1541354329998-f4d9a9f9297f?auto=format&fit=crop&w=900&q=70" alt="" loading="lazy" class="absolute inset-0" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/20 to-transparent"></div>
+            <div class="absolute bottom-0 inset-x-0 p-5 sm:p-6 text-white"><span class="text-[12px] text-white/70 font-medium">01</span><p class="font-display text-xl sm:text-2xl font-medium tracking-tight leading-tight">Banks &amp; NBFCs</p></div>
+          </li>
+          <li class="reveal reveal-d1 zoom img-frame rounded-[22px] aspect-[4/5] sm:aspect-[4/3] on-photo">
+            <img src="https://images.unsplash.com/photo-1555848962-6e79363ec58f?auto=format&fit=crop&w=900&q=70" alt="" loading="lazy" class="absolute inset-0" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/20 to-transparent"></div>
+            <div class="absolute bottom-0 inset-x-0 p-5 sm:p-6 text-white"><span class="text-[12px] text-white/70 font-medium">02</span><p class="font-display text-xl sm:text-2xl font-medium tracking-tight leading-tight">Government</p></div>
+          </li>
+          <li class="reveal reveal-d2 zoom img-frame rounded-[22px] aspect-[4/5] sm:aspect-[4/3] on-photo">
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=900&q=70" alt="" loading="lazy" class="absolute inset-0" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/20 to-transparent"></div>
+            <div class="absolute bottom-0 inset-x-0 p-5 sm:p-6 text-white"><span class="text-[12px] text-white/70 font-medium">03</span><p class="font-display text-xl sm:text-2xl font-medium tracking-tight leading-tight">Healthcare</p></div>
+          </li>
+          <li class="reveal zoom img-frame rounded-[22px] aspect-[4/5] sm:aspect-[4/3] on-photo">
+            <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=900&q=70" alt="" loading="lazy" class="absolute inset-0" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/20 to-transparent"></div>
+            <div class="absolute bottom-0 inset-x-0 p-5 sm:p-6 text-white"><span class="text-[12px] text-white/70 font-medium">04</span><p class="font-display text-xl sm:text-2xl font-medium tracking-tight leading-tight">Education</p></div>
+          </li>
+          <li class="reveal reveal-d1 zoom img-frame rounded-[22px] aspect-[4/5] sm:aspect-[4/3] on-photo">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=70" alt="" loading="lazy" class="absolute inset-0" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/20 to-transparent"></div>
+            <div class="absolute bottom-0 inset-x-0 p-5 sm:p-6 text-white"><span class="text-[12px] text-white/70 font-medium">05</span><p class="font-display text-xl sm:text-2xl font-medium tracking-tight leading-tight">Corporates</p></div>
+          </li>
+          <li class="reveal reveal-d2 zoom img-frame rounded-[22px] aspect-[4/5] sm:aspect-[4/3] on-photo">
+            <img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=900&q=70" alt="" loading="lazy" class="absolute inset-0" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/20 to-transparent"></div>
+            <div class="absolute bottom-0 inset-x-0 p-5 sm:p-6 text-white"><span class="text-[12px] text-white/70 font-medium">06</span><p class="font-display text-xl sm:text-2xl font-medium tracking-tight leading-tight">Retail</p></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         06. HOW IT WORKS — dark rounded section with image
+         ========================================================= -->
+    <section id="process" class="px-2 sm:px-3">
+      <div class="rounded-[28px] bg-ink text-white on-dark overflow-hidden relative">
+        <div class="absolute inset-0 opacity-60" style="background: var(--g-stripes);" aria-hidden="true"></div>
+        <div class="relative mx-auto max-w-container px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+          <div class="grid lg:grid-cols-12 gap-10 items-end">
+            <div class="lg:col-span-7 reveal">
+              <p class="eyebrow">How it works</p>
+              <h2 class="t-h2 mt-4">From first call to a working team in four steps.</h2>
+            </div>
+            <p class="lg:col-span-5 text-ondarkmuted text-lg reveal">No long paperwork cycles. We assess, propose and deploy, then keep you informed with regular reports.</p>
+          </div>
+
+          <div class="mt-14 grid lg:grid-cols-12 gap-4">
+            <div class="lg:col-span-5 img-frame rounded-[22px] min-h-[300px] reveal">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=70" alt="A team planning work together at a whiteboard" loading="lazy" class="absolute inset-0" />
+              <div class="absolute bottom-5 left-5 right-5 chip p-5 text-ink">
+                <p class="text-[13px] font-semibold text-muted">Site assessment &amp; quote</p>
+                <p class="font-display text-2xl font-medium tracking-tight mt-1">Free, no obligation</p>
+              </div>
+            </div>
+            <ol class="lg:col-span-7 grid sm:grid-cols-2 gap-4">
+              <li class="rounded-[22px] bg-ink2 border border-white/10 p-7 reveal">
+                <span class="t-num g-text text-6xl">01</span>
+                <h3 class="t-h3 mt-6">Share your requirement</h3>
+                <p class="text-ondarkmuted text-[15px] mt-2">Call, WhatsApp or fill in the form. Tell us what you need and where.</p>
+              </li>
+              <li class="rounded-[22px] bg-ink2 border border-white/10 p-7 reveal reveal-d1">
+                <span class="t-num g-text text-6xl">02</span>
+                <h3 class="t-h3 mt-6">Site &amp; scope assessment</h3>
+                <p class="text-ondarkmuted text-[15px] mt-2">We visit, understand the work and send a clear written proposal and quote.</p>
+              </li>
+              <li class="rounded-[22px] bg-ink2 border border-white/10 p-7 reveal">
+                <span class="t-num g-text text-6xl">03</span>
+                <h3 class="t-h3 mt-6">Deploy a trained team</h3>
+                <p class="text-ondarkmuted text-[15px] mt-2">Verified staff start on the agreed date, with a named supervisor for your site.</p>
+              </li>
+              <li class="rounded-[22px] g-bg p-7 reveal reveal-d1">
+                <span class="t-num text-6xl text-white">04</span>
+                <h3 class="t-h3 mt-6 text-white">Report &amp; review</h3>
+                <p class="text-white/90 text-[15px] mt-2">Regular reports and review meetings keep quality on track.</p>
+              </li>
+            </ol>
+          </div>
+
+          <div class="mt-12 reveal">
+            <a href="#contact" class="btn btn-white">Start with step one
+              <span class="arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         07. WHY NASAA — image + differentiators list + stats
+         ========================================================= -->
+    <section id="why" class="py-24 lg:py-32">
+      <div class="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          <div class="lg:col-span-5 reveal">
+            <div class="relative">
+              <div class="img-frame rounded-[22px] aspect-[4/5]">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1000&q=70" alt="Two professionals shaking hands after agreeing a contract" loading="lazy" class="absolute inset-0" />
+              </div>
+              <!-- Floating chip -->
+              <div class="absolute -bottom-6 right-4 sm:-right-6 chip p-5 w-[230px]">
+                <p class="font-display text-xl font-medium tracking-tight text-ink">Verified. Trained. Supervised.</p>
+                <p class="text-[14px] text-muted mt-1">Every person we place on your site.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 reveal reveal-d1">
+            <p class="eyebrow">Why NASAA</p>
+            <h2 class="t-h2 text-ink mt-4">Local, accountable and easy to work with.</h2>
+            <ul class="mt-10 divide-y divide-line border-y border-line">
+              <li class="py-6 flex gap-5">
+                <span class="shrink-0 w-12 h-12 rounded-2xl bg-lavender grid place-items-center" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B2EF0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+                <div><h3 class="t-h3 text-ink">Rooted in J&amp;K</h3><p class="text-muted text-[15px] mt-1">Based in Srinagar, we know the region and its institutions. Our teams reach your site fast.</p></div>
+              </li>
+              <li class="py-6 flex gap-5">
+                <span class="shrink-0 w-12 h-12 rounded-2xl bg-lavender grid place-items-center" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B2EF0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 11l2 2 4-4"/></svg></span>
+                <div><h3 class="t-h3 text-ink">Verified, trained staff</h3><p class="text-muted text-[15px] mt-1">Every team member is background-checked and trained for the role before placement.</p></div>
+              </li>
+              <li class="py-6 flex gap-5">
+                <span class="shrink-0 w-12 h-12 rounded-2xl bg-lavender grid place-items-center" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B2EF0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+                <div><h3 class="t-h3 text-ink">A single point of contact</h3><p class="text-muted text-[15px] mt-1">One account manager for all your services, and one number to call when you need something done.</p></div>
+              </li>
+              <li class="py-6 flex gap-5">
+                <span class="shrink-0 w-12 h-12 rounded-2xl bg-lavender grid place-items-center" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B2EF0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg></span>
+                <div><h3 class="t-h3 text-ink">Compliance first</h3><p class="text-muted text-[15px] mt-1">Registered company, proper contracts, GST invoicing and statutory compliance for our staff.</p></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         08. ABOUT — image collage + mission
+         ========================================================= -->
+    <section id="about" class="pb-24 lg:pb-32">
+      <div class="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
+        <div class="rounded-[28px] bg-paper p-4 sm:p-6 lg:p-10 grid lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+          <div class="lg:col-span-6 grid grid-cols-5 gap-3 reveal">
+            <div class="col-span-3 img-frame rounded-[20px] aspect-[3/4]">
+              <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=70" alt="A team working together in a modern office" loading="lazy" class="absolute inset-0" />
+            </div>
+            <div class="col-span-2 grid gap-3">
+              <div class="img-frame rounded-[20px] aspect-square">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=70" alt="A client meeting around a conference table" loading="lazy" class="absolute inset-0" />
+              </div>
+              <div class="rounded-[20px] g-bg p-5 text-white flex flex-col justify-end aspect-square">
+                <p class="font-display text-[clamp(1rem,.8rem+1vw,1.5rem)] font-medium tracking-tight leading-tight">Made in Kashmir, for Kashmir.</p>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-6 reveal reveal-d1 pb-4 lg:pb-0">
+            <p class="eyebrow">About us</p>
+            <h2 class="t-h2 text-ink mt-4">Your Growth • Our Commitment</h2>
+            <p class="mt-6 text-lg text-body">NASAA Professional Services Pvt. Ltd. is a Srinagar-based company built to give Kashmir's institutions a dependable outsourcing partner close to home.</p>
+            <p class="mt-4 text-muted">We take on the essential work behind the scenes, from loan recovery and housekeeping to data and supplies. That lets our clients focus on their customers, patients and students. We also create steady, skilled jobs for local people.</p>
+            <div class="mt-8 grid grid-cols-3 gap-3">
+              <div class="rounded-2xl bg-surface p-4"><p class="font-display font-medium text-ink tracking-tight">Quality</p></div>
+              <div class="rounded-2xl bg-surface p-4"><p class="font-display font-medium text-ink tracking-tight">Trust</p></div>
+              <div class="rounded-2xl bg-surface p-4"><p class="font-display font-medium text-ink tracking-tight">Excellence</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         08b. FAQ
+         ========================================================= -->
+    <section aria-labelledby="faq-title" class="pb-24 lg:pb-32">
+      <div class="mx-auto max-w-container px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10">
+        <div class="lg:col-span-4 reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title" class="t-h2 text-ink mt-4">Common questions.</h2>
+          <p class="text-muted mt-4">Can't find your answer? Call us on <a class="text-indigo font-semibold" href="tel:+919596313927">95963 13927</a>.</p>
+        </div>
+        <div class="lg:col-span-8 space-y-3 reveal reveal-d1">
+          <details class="card p-6 sm:p-7" open>
+            <summary class="flex items-center justify-between gap-6 font-display text-lg sm:text-xl font-medium tracking-tight text-ink">Can we take more than one service under one contract?<span class="plus shrink-0 w-9 h-9 rounded-full bg-paper grid place-items-center text-xl" aria-hidden="true">+</span></summary>
+            <p class="text-muted mt-4">Yes. Many clients combine services, such as housekeeping and supplies, under one agreement with one invoice and one account manager.</p>
+          </details>
+          <details class="card p-6 sm:p-7">
+            <summary class="flex items-center justify-between gap-6 font-display text-lg sm:text-xl font-medium tracking-tight text-ink">Which areas do you cover?<span class="plus shrink-0 w-9 h-9 rounded-full bg-paper grid place-items-center text-xl" aria-hidden="true">+</span></summary>
+            <p class="text-muted mt-4">We are based in Srinagar and serve institutions across Jammu &amp; Kashmir. Tell us your location and we will confirm coverage.</p>
+          </details>
+          <details class="card p-6 sm:p-7">
+            <summary class="flex items-center justify-between gap-6 font-display text-lg sm:text-xl font-medium tracking-tight text-ink">How quickly can a team start?<span class="plus shrink-0 w-9 h-9 rounded-full bg-paper grid place-items-center text-xl" aria-hidden="true">+</span></summary>
+            <p class="text-muted mt-4">It depends on the scope. After the site assessment, our written proposal includes a confirmed start date.</p>
+          </details>
+          <details class="card p-6 sm:p-7">
+            <summary class="flex items-center justify-between gap-6 font-display text-lg sm:text-xl font-medium tracking-tight text-ink">How is our data kept confidential?<span class="plus shrink-0 w-9 h-9 rounded-full bg-paper grid place-items-center text-xl" aria-hidden="true">+</span></summary>
+            <p class="text-muted mt-4">Staff on data work sign confidentiality agreements. We follow your access rules and return or destroy records as agreed in the contract.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         09. CTA BAND — photo + striped brand gradient
+         ========================================================= -->
+    <section aria-labelledby="cta-title" class="px-2 sm:px-3">
+      <div class="relative rounded-[28px] overflow-hidden on-photo bg-ink">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2000&q=70" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0" style="background: linear-gradient(110deg, rgba(18,18,20,.9) 0%, rgba(59,46,240,.78) 45%, rgba(194,79,224,.6) 70%, rgba(255,106,77,.55) 100%);" aria-hidden="true"></div>
+        <div class="absolute inset-0" style="background: var(--g-stripes);" aria-hidden="true"></div>
+        <div class="relative mx-auto max-w-container px-4 sm:px-6 lg:px-8 py-20 lg:py-28 grid lg:grid-cols-12 gap-10 items-end text-white">
+          <div class="lg:col-span-7 reveal">
+            <p class="eyebrow !text-white/80">Talk to us</p>
+            <h2 id="cta-title" class="t-display !text-[clamp(2.4rem,1.4rem+4vw,5rem)] mt-5">Let's discuss your requirement.</h2>
+            <p class="mt-5 text-lg text-white/80 max-w-lg">Speak directly with our team. We'll understand your needs and come back with a clear proposal.</p>
+          </div>
+          <div class="lg:col-span-5 flex flex-col gap-3 reveal reveal-d1">
+            <a href="tel:+919596313927" class="btn btn-white justify-between !min-h-[64px] text-lg">+91 95963 13927
+              <span class="arrow !w-12 !h-12" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+            </a>
+            <a href="tel:+919086518240" class="btn justify-between !min-h-[64px] text-lg bg-white/10 border border-white/30 backdrop-blur text-white hover:bg-white/20">+91 90865 18240
+              <span class="arrow !w-12 !h-12 bg-white/15" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         10. CONTACT
+         ========================================================= -->
+    <section id="contact" class="py-24 lg:py-32">
+      <div class="mx-auto max-w-container px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10 lg:gap-14">
+        <div class="lg:col-span-7 reveal">
+          <p class="eyebrow">Contact</p>
+          <h2 class="t-h2 text-ink mt-4">Request a service.</h2>
+          <p class="mt-4 text-muted text-lg">Tell us a little about your needs. We reply within one working day.</p>
+
+          <!-- No backend: on submit, the form opens a pre-filled email. Swap for Formspree/your API later. -->
+          <form id="enquiry-form" class="mt-10 card p-6 sm:p-8 grid sm:grid-cols-2 gap-5" novalidate>
+            <div>
+              <label for="f-name" class="field-label">Full name <span class="text-indigo" aria-hidden="true">*</span></label>
+              <input id="f-name" name="name" type="text" class="field" autocomplete="name" required />
+            </div>
+            <div>
+              <label for="f-org" class="field-label">Organisation</label>
+              <input id="f-org" name="organisation" type="text" class="field" autocomplete="organization" />
+            </div>
+            <div>
+              <label for="f-phone" class="field-label">Phone <span class="text-indigo" aria-hidden="true">*</span></label>
+              <input id="f-phone" name="phone" type="tel" class="field" autocomplete="tel" inputmode="tel" pattern="[0-9+\s\-]{10,15}" required />
+            </div>
+            <div>
+              <label for="f-email" class="field-label">Email</label>
+              <input id="f-email" name="email" type="email" class="field" autocomplete="email" />
+            </div>
+            <div class="sm:col-span-2">
+              <label for="f-service" class="field-label">Service needed <span class="text-indigo" aria-hidden="true">*</span></label>
+              <select id="f-service" name="service" class="field" required>
+                <option value="">Select a service</option>
+                <option>Debt Recovery Services</option>
+                <option>Housekeeping Services</option>
+                <option>Data Entry Operator Services</option>
+                <option>Data Digitisation Services</option>
+                <option>General Order Supplies</option>
+                <option>Scrap Purchase &amp; Disposal</option>
+                <option>More than one service</option>
+              </select>
+            </div>
+            <div class="sm:col-span-2">
+              <label for="f-msg" class="field-label">Message</label>
+              <textarea id="f-msg" name="message" rows="4" class="field !min-h-[130px]" placeholder="Location, scale of work, start date…"></textarea>
+            </div>
+            <div class="sm:col-span-2 flex flex-col sm:flex-row sm:items-center gap-4">
+              <button type="submit" class="btn btn-dark">Send enquiry
+                <span class="arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </button>
+              <p id="form-status" class="text-sm text-muted" role="status" aria-live="polite">Fields marked * are required.</p>
+            </div>
+          </form>
+        </div>
+
+        <aside class="lg:col-span-5 reveal reveal-d1" aria-label="Contact details">
+          <div class="card">
+            <div class="card-strip"><span>NASAA Professional Services</span><span class="w-2 h-2 rounded-full g-bg" aria-hidden="true"></span></div>
+            <dl class="p-6 sm:p-8 space-y-6">
+              <div><dt class="text-[12px] font-semibold uppercase tracking-[.14em] text-muted">Office</dt><dd class="mt-1 text-ink font-medium">Reshi Mohalla, Habba Kadal,<br />Srinagar, Jammu &amp; Kashmir</dd></div>
+              <div><dt class="text-[12px] font-semibold uppercase tracking-[.14em] text-muted">Phone</dt>
+                <dd class="mt-1 text-ink font-medium flex flex-col"><a class="hover:text-indigo" href="tel:+919596313927">+91 95963 13927</a><a class="hover:text-indigo" href="tel:+919086518240">+91 90865 18240</a></dd></div>
+              <div><dt class="text-[12px] font-semibold uppercase tracking-[.14em] text-muted">Email</dt><dd class="mt-1 text-ink font-medium break-all"><a class="hover:text-indigo" href="mailto:nasaaprofessionalservicespvtltd@gmail.com">nasaaprofessionalservicespvtltd@gmail.com</a></dd></div>
+            </dl>
+            <div class="px-6 sm:px-8 pb-6 sm:pb-8">
+              <a href="https://wa.me/919596313927?text=Hello%20NASAA%2C%20I%20would%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener" class="btn w-full justify-between bg-[#1E7E4A] text-white hover:bg-[#17663B]">
+                <span class="flex items-center gap-2"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg>Chat on WhatsApp</span>
+                <span class="arrow bg-white/15" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a>
+            </div>
+          </div>
+          <!-- Map placeholder: replace q= with the exact office pin when available -->
+          <div class="mt-4 rounded-[22px] overflow-hidden border border-line bg-lavender aspect-[4/3]">
+            <iframe title="Map showing Habba Kadal, Srinagar" src="https://www.google.com/maps?q=Habba%20Kadal%2C%20Srinagar%2C%20Jammu%20and%20Kashmir&output=embed" class="w-full h-full" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       11. FOOTER
+       ========================================================= -->
+  <footer class="px-2 sm:px-3 pb-3">
+    <div class="rounded-[28px] bg-ink text-ondarkmuted on-dark overflow-hidden">
+      <div class="mx-auto max-w-container px-4 sm:px-6 lg:px-8 pt-16 lg:pt-20 pb-8">
+        <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-12">
+          <div class="lg:col-span-4">
+            <div class="flex items-center gap-2.5">
+              <svg width="30" height="26" viewBox="0 0 30 26" aria-hidden="true"><path d="M0 26 9 0h7L7 26z" fill="#fff"/><path d="M11 26 20 0h4l-9 26z" fill="#fff"/><path d="M19 26l5.5-15L30 26z" fill="url(#gm2)"/><defs><linearGradient id="gm2" x1="0" x2="1"><stop stop-color="#3B2EF0"/><stop offset=".55" stop-color="#C24FE0"/><stop offset="1" stop-color="#FF9447"/></linearGradient></defs></svg>
+              <span class="font-display text-2xl font-medium tracking-[-0.04em] text-white">nasaa</span>
+            </div>
+            <p class="mt-3 text-sm text-white/90">Professional Services Pvt. Ltd.</p>
+            <p class="mt-5 font-display text-xl font-medium tracking-tight g-text inline-block">Your Growth • Our Commitment</p>
+          </div>
+          <nav class="lg:col-span-2" aria-label="Footer quick links">
+            <p class="text-white font-semibold mb-4">Company</p>
+            <ul class="space-y-2 text-[15px]">
+              <li><a class="hover:text-white" href="#services">Services</a></li>
+              <li><a class="hover:text-white" href="#why">Why Us</a></li>
+              <li><a class="hover:text-white" href="#process">Process</a></li>
+              <li><a class="hover:text-white" href="#about">About</a></li>
+              <li><a class="hover:text-white" href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="lg:col-span-3">
+            <p class="text-white font-semibold mb-4">Services</p>
+            <ul class="space-y-2 text-[15px]">
+              <li>01 Debt Recovery</li><li>02 Housekeeping</li><li>03 Data Entry Operators</li>
+              <li>04 Data Digitisation</li><li>05 General Order Supplies</li><li>06 Scrap Purchase &amp; Disposal</li>
+            </ul>
+          </div>
+          <div class="lg:col-span-3">
+            <p class="text-white font-semibold mb-4">Contact</p>
+            <address class="not-italic space-y-2 text-[15px]">
+              <p>Reshi Mohalla, Habba Kadal,<br />Srinagar, J&amp;K</p>
+              <p><a class="hover:text-white" href="tel:+919596313927">+91 95963 13927</a><br /><a class="hover:text-white" href="tel:+919086518240">+91 90865 18240</a></p>
+              <p class="break-all"><a class="hover:text-white" href="mailto:nasaaprofessionalservicespvtltd@gmail.com">nasaaprofessionalservicespvtltd@gmail.com</a></p>
+              <p><a class="hover:text-white" href="https://www.nasaaprofessionalservices.com">www.nasaaprofessionalservices.com</a></p>
+            </address>
+          </div>
+        </div>
+
+        <!-- Oversized wordmark -->
+        <p class="mt-16 font-display font-medium tracking-[-0.06em] leading-[.8] text-[clamp(5rem,22vw,20rem)] g-text select-none" aria-hidden="true">nasaa</p>
+
+        <div class="mt-8 pt-6 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs">
+          <p>© 2026 NASAA Professional Services Pvt. Ltd. All rights reserved.</p>
+          <p class="flex flex-wrap gap-x-4 gap-y-1"><span>CIN: U62090JK2026PTC020266</span><span>PAN: AAMCN2922R</span><span>TAN: AMRN14244G</span></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       SCRIPTS
+       ========================================================= -->
+  <script>
+    (function () {
+      // --- Mobile menu ---
+      const btn = document.getElementById('menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('icon-open');
+      const iconClose = document.getElementById('icon-close');
+      function setMenu(open) {
+        menu.classList.toggle('hidden', !open);
+        iconOpen.classList.toggle('hidden', open);
+        iconClose.classList.toggle('hidden', !open);
+        btn.setAttribute('aria-expanded', String(open));
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      }
+      btn.addEventListener('click', () => setMenu(menu.classList.contains('hidden')));
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+      window.matchMedia('(min-width: 1024px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+
+      // --- Hero slideshow: crossfade service photos every 6s (timer drives the progress bars) ---
+      const hero = document.getElementById('hero');
+      const slides = [...document.querySelectorAll('[data-slide]')];
+      const tabs = [...document.querySelectorAll('.hero-tab')];
+      const services = [
+        { title: 'Debt Recovery for Financial Institutions', line: 'Firm, polite field recovery within RBI guidelines.', form: 'Debt Recovery Services' },
+        { title: 'Housekeeping Services', line: 'Trained, supervised staff for offices, hospitals and campuses.', form: 'Housekeeping Services' },
+        { title: 'Data Entry Operator Services', line: 'Accurate operators, on your site or ours.', form: 'Data Entry Operator Services' },
+        { title: 'Data Digitisation Services', line: 'Paper files turned into searchable digital records.', form: 'Data Digitisation Services' },
+        { title: 'General Order Supplies', line: 'Office essentials sourced and delivered on time.', form: 'General Order Supplies' },
+        { title: 'Scrap Purchase & Disposal', line: 'Fair valuation, pickup and responsible disposal.', form: 'Scrap Purchase & Disposal' },
+      ];
+      const cardBody = document.getElementById('hero-card-body');
+      const heroLink = document.getElementById('hero-link');
+      const DURATION = 6000;
+      let current = 0, elapsed = 0, last = performance.now();
+      function show(i) {
+        current = (i + slides.length) % slides.length;
+        elapsed = 0;
+        slides.forEach((s, n) => s.classList.toggle('is-active', n === current));
+        tabs.forEach((t, n) => {
+          t.classList.remove('is-active', 'is-done');
+          t.querySelector('.hero-progress').style.width = '';
+          if (n < current) t.classList.add('is-done');
+          if (n === current) t.classList.add('is-active');
+          t.setAttribute('aria-selected', String(n === current));
+        });
+        const num = String(current + 1).padStart(2, '0');
+        cardBody.classList.add('swap');
+        setTimeout(() => {
+          document.getElementById('hero-num').textContent = num;
+          document.getElementById('hero-count').textContent = num;
+          document.getElementById('hero-title').textContent = services[current].title;
+          document.getElementById('hero-line').textContent = services[current].line;
+          heroLink.dataset.service = services[current].form;
+          cardBody.classList.remove('swap');
+        }, 250);
+      }
+      tabs.forEach((t, n) => {
+        t.addEventListener('click', () => show(n));
+      });
+      // Pause while hovered or focused, or via the pause button
+      let userPaused = false;
+      const pauseBtn = document.getElementById('hero-pause');
+      const setPaused = () => hero.classList.toggle('paused', userPaused || hero.matches(':hover') || hero.contains(document.activeElement));
+      hero.addEventListener('mouseenter', setPaused);
+      hero.addEventListener('mouseleave', setPaused);
+      hero.addEventListener('focusin', setPaused);
+      hero.addEventListener('focusout', () => setTimeout(setPaused, 0));
+      pauseBtn.addEventListener('click', () => {
+        userPaused = !userPaused; setPaused();
+        pauseBtn.setAttribute('aria-label', userPaused ? 'Play slideshow' : 'Pause slideshow');
+        document.getElementById('ico-pause').classList.toggle('hidden', userPaused);
+        document.getElementById('ico-play').classList.toggle('hidden', !userPaused);
+      });
+      // Timer: advance progress unless paused; reduced motion = manual only
+      const autoplay = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!autoplay) hero.classList.add('no-autoplay');
+      function tick() {
+        const now = performance.now();
+        const dt = now - last; last = now;
+        // Ignore long gaps (sleeping laptop, background tab) so slides don't jump
+        if (autoplay && dt < 1500 && !hero.classList.contains('paused') && !document.hidden) {
+          elapsed += dt;
+          tabs[current].querySelector('.hero-progress').style.width = Math.min(elapsed / DURATION * 100, 100) + '%';
+          if (elapsed >= DURATION) show(current + 1);
+        }
+      }
+      setInterval(tick, 100);
+
+      // --- Header shadow on scroll ---
+      const header = document.getElementById('site-header');
+      const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // --- Hide broken images gracefully (lavender frame shows instead) ---
+      document.querySelectorAll('img').forEach(img => img.addEventListener('error', () => { img.style.visibility = 'hidden'; }));
+
+      // --- Scroll reveal ---
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const items = document.querySelectorAll('.reveal');
+      if (reduce || !('IntersectionObserver' in window)) {
+        items.forEach(el => el.classList.add('is-visible'));
+      } else {
+        const io = new IntersectionObserver(entries => {
+          entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); } });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        items.forEach(el => io.observe(el));
+      }
+
+      // --- "Enquire" links pre-select the service ---
+      const select = document.getElementById('f-service');
+      document.querySelectorAll('.enquire').forEach(link => {
+        link.addEventListener('click', () => {
+          const opt = [...select.options].find(o => o.text === link.dataset.service);
+          if (opt) select.value = opt.value;
+        });
+      });
+
+      // --- Form: validate, then open a pre-filled email ---
+      const form = document.getElementById('enquiry-form');
+      const status = document.getElementById('form-status');
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        form.querySelectorAll('.field').forEach(f => f.removeAttribute('aria-invalid'));
+        const invalid = [...form.querySelectorAll('[required]')].filter(f => !f.checkValidity());
+        if (invalid.length) {
+          invalid.forEach(f => f.setAttribute('aria-invalid', 'true'));
+          invalid[0].focus();
+          status.textContent = 'Please fill in your name, a valid phone number and the service you need.';
+          status.style.color = '#C2410C';
+          return;
+        }
+        const d = new FormData(form);
+        const body = ['Name: ' + d.get('name'), 'Organisation: ' + (d.get('organisation') || '-'), 'Phone: ' + d.get('phone'), 'Email: ' + (d.get('email') || '-'), 'Service: ' + d.get('service'), '', d.get('message') || ''].join('\n');
+        window.location.href = 'mailto:nasaaprofessionalservicespvtltd@gmail.com?subject=' + encodeURIComponent('Service enquiry: ' + d.get('service')) + '&body=' + encodeURIComponent(body);
+        status.textContent = 'Thank you. Your email app should open with the enquiry ready to send.';
+        status.style.color = 'var(--c-ink)';
+      });
+    })();
+  </script>
+</body>
+</html>
